@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Dashboard</h1>
+
+    <h2>Booked Tickets</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Bus ID</th>
+                <th>Seat Number</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1234</td>
+                <td>1A</td>
+                <td>Confirmed</td>
+                <td><a href="#">Cancel</a></td>
+            </tr>
+            <!-- Add more rows for each booked ticket -->
+        </tbody>
+    </table>
+
+    <h2>Booking History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Bus ID</th>
+                <th>Seat Number</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1001</td>
+                <td>1234</td>
+                <td>1A</td>
+                <td>Confirmed</td>
+            </tr>
+            <!-- Add more rows for booking history -->
+        </tbody>
+    </table>
+</body>
+</html>
