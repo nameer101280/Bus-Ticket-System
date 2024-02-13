@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>EasyBus Bookings</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
     <!-- Bootstrap icons-->
@@ -14,37 +14,61 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+    <!-- Navbar scroll functionality -->
+    <style>
+        /* Add your navbar styling here */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            transition: top 0.3s;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div id="mainNavigation">
+        <nav role="navigation">
+          <div class="py-3 text-center border-bottom">
+            <img src="/static_files/images/logos/logo_3_white_2.png" alt="" class="invert">
+          </div>
+        </nav>
+        <div class="navbar-expand-md">
+          <div class="navbar-dark text-center my-2">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+            </button>
+          </div>
+          <div class="text-center mt-3 collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="templates/index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="templates/book_tickets.html">Book Tickets</a>
+                <a class="nav-link" href="{{ url_for('book_tickets') }}">Book Tickets</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="templates/login.html">Login</a>
+                <a class="nav-link" href="#">About Us</a> <!-- Updated nav link -->
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="templates/register.html">Register</a>
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="" data-bs-toggle="" aria-expanded="false">
+                </a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="btn btn-outline-light nav-link" href="{{ url_for('login') }}">Login</a> <!-- Style login link as button -->
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-light nav-link" href="{{ url_for('register') }}">Register</a> <!-- Style register link as button -->
+              </li>
+            </ul>
           </div>
         </div>
-      </nav>
+      </div>
+  
     <!-- Masthead-->
     <header class="masthead">
         <div class="container position-relative">
@@ -52,41 +76,9 @@
                 <div class="col-xl-6">
                     <div class="text-center text-white">
                         <!-- Page heading-->
-                        <h1 class="mb-5">Generate more leads with a professional landing page!</h1>
-                        <!-- Signup form-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Email address input-->
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
-                                </div>
-                                <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    <p>To activate this form, sign up at</p>
-                                    <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        <h1 class="mb-6">Welcome to EasyBus Bookings</h1>
                                 </div>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                         </form>
                     </div>
                 </div>
@@ -100,22 +92,22 @@
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                         <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-                        <h3>Fully Responsive</h3>
-                        <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
+                        <h3>Seamless Booking Experience</h3>
+                        <p class="lead mb-0">Enjoy hassle-free booking on any device, ensuring easy access to bus tickets wherever you are.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                         <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
-                        <h3>Bootstrap 5 Ready</h3>
-                        <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
+                        <h3>User-Friendly Customization</h3>
+                        <p class="lead mb-0">Personalize your journey effortlessly, adapting ticketing options to suit your preferences with ease.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                         <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
-                        <h3>Easy to Use</h3>
-                        <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
+                        <h3>Secure Transactions</h3>
+                        <p class="lead mb-0">Enjoy peace of mind with secure transactions, safeguarding your payment details throughout the booking process.</p>
                     </div>
                 </div>
             </div>
@@ -127,24 +119,25 @@
             <div class="row g-0">
                 <div class="col-lg-6 order-lg-2 text-white showcase-img"><img src="{{ url_for('static', filename='assets/images/bg-showcase-1.jpg') }}"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <h2>Fully Responsive Design</h2>
-                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                    <h2>Connected Journeys</h2>
+                    <p class="lead mb-0">Showcase the seamless connectivity of our bus system, ensuring travelers reach their destinations with ease and efficiency.</p>
                 </div>
             </div>
             <div class="row g-0">
                 <div class="col-lg-6 text-white showcase-img"><img src="{{ url_for('static', filename='assets/images/bg-showcase-2.jpg') }}"></div>
                 <div class="col-lg-6 my-auto showcase-text">
-                    <h2>Updated For Bootstrap 5</h2>
-                    <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
+                    <h2>Comfortable Travel</h2>
+                    <p class="lead mb-0">Highlight the comfort of our buses, providing a relaxing and enjoyable journey for passengers of all ages.</p>
                 </div>
             </div>
             <div class="row g-0">
                 <div class="col-lg-6 order-lg-2 text-white showcase-img"><img src="{{ url_for('static', filename='assets/images/bg-showcase-3.jpg') }}"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <h2>Easy to Use & Customize</h2>
-                    <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+                    <h2>Scenic Routes</h2>
+                    <p class="lead mb-0">Explore picturesque routes taken by our buses, offering passengers unforgettable views and memorable travel experiences.</p>
                 </div>
             </div>
+            
         </div>
     </section>
     <!-- Testimonials-->
@@ -257,10 +250,48 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="{{ url_for('static', filename='/scripts.js') }}"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+     <!-- Navbar scroll functionality -->
+     <script>
+        let prevScrollPos = window.pageYOffset;
+        const navbar = document.getElementById("mainNavigation");
+        let isNavbarVisible = true;
+    
+        function toggleNavbar() {
+            const currentScrollPos = window.pageYOffset;
+    
+            if (prevScrollPos > currentScrollPos) {
+                // Scrolling up
+                navbar.style.top = "0";
+                isNavbarVisible = true;
+            } else {
+                // Scrolling down
+                navbar.style.top = "-100px"; // Adjust as needed
+                isNavbarVisible = false;
+            }
+    
+            prevScrollPos = currentScrollPos;
+        }
+    
+        window.onscroll = function() {
+            toggleNavbar();
+        };
+    
+        // Function to check if the user has scrolled to the top of the page
+        function isAtTop() {
+            return window.scrollY === 0;
+        }
+    
+        // Event listener to show the navbar when reaching the top of the page
+        window.addEventListener('scroll', function() {
+            if (isAtTop() && !isNavbarVisible) {
+                navbar.style.top = "0";
+                isNavbarVisible = true;
+            } else if (!isAtTop() && isNavbarVisible) {
+                navbar.style.top = "-100px"; // Adjust as needed
+                isNavbarVisible = false;
+            }
+        });
+    </script>    
+       
 </body>
 </html>

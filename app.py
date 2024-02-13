@@ -2,7 +2,8 @@ from flask import Flask, request, session, render_template, url_for, redirect
 import boto3
 from botocore.exceptions import ClientError
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__, static_url_path='/static', template_folder="templates")
+
 app.secret_key = "your_secret_key"  # Change this to a secure secret key
 
 # AWS Cognito configuration
@@ -16,7 +17,7 @@ client = boto3.client('cognito-idp', region_name=REGION_NAME)
 def home():
     return render_template('index.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login.html', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form['email']
@@ -31,13 +32,13 @@ def login():
                 }
             )
             session['access_token'] = response['AuthenticationResult']['AccessToken']
-            return redirect(url_for('user_dashboard'))
+            return redirect(url_for('user_dashboard'))  # Changed redirect URL
         except ClientError as e:
             error_message = e.response['Error']['Message']
             return render_template('login.html', error=error_message)
     return render_template('login.html')
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/register.html', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         email = request.form['email']
@@ -51,17 +52,22 @@ def register():
                     {'Name': 'email', 'Value': email}
                 ]
             )
-            return redirect(url_for('login'))
+            return redirect(url_for('login'))  # Changed redirect URL
         except ClientError as e:
             error_message = e.response['Error']['Message']
             return render_template('register.html', error=error_message)
     return render_template('register.html')
 
-@app.route('/user_dashboard')
+@app.route('/book_ticket.html')
+def book_tickets():
+    return render_template('book_ticket.html')
+
+@app.route('/user_dashboard.html')  # Changed route URL
 def user_dashboard():
     if 'access_token' not in session:
         return redirect(url_for('login'))
     return render_template('user_dashboard.html')
+
 
 @app.route('/logout')
 def logout():

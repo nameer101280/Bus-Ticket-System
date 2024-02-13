@@ -21,3 +21,18 @@ document.addEventListener("DOMContentLoaded", function() {
         form.reset();
     });
 });
+
+let lastScrollTop = 0;
+
+window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Scroll down
+        document.getElementById("mainNavbar").classList.add("navbar-hidden");
+    } else {
+        // Scroll up
+        document.getElementById("mainNavbar").classList.remove("navbar-hidden");
+    }
+    lastScrollTop = currentScroll;
+});
