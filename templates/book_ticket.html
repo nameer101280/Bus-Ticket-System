@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Book Tickets</title>
+
+<style id="" media="all">/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+</style>
+
+<link type="text/css" rel="stylesheet" href="static/css/bootstrap.min.css"/>
+
+<link type="text/css" rel="stylesheet" href="static/css/book.css"/>
+
+<meta name="robots" content="noindex, follow">
+</head>
+<body>
+
+   <!-- Navigation-->
+<div id="mainNavigation">
+    <nav role="navigation">
+        <div class="py-3 text-center border-bottom">
+            <img src="/static_files/images/logos/logo_3_white_2.png" alt="" class="invert">
+        </div>
+    </nav>
+    <div class="navbar-expand-md">
+        <div class="navbar-dark text-center my-2">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+            </button>
+        </div>
+        <div class="text-center mt-3 collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('book_tickets') }}">Book Tickets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a> <!-- Updated nav link -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="" data-bs-toggle="" aria-expanded="false">
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 navbar-nav right-links"> <!-- Added 'navbar-nav right-links' class -->
+                <li class="nav-item">
+                    <a class="btn btn-outline-light nav-link" href="{{ url_for('login') }}">Login</a> <!-- Style login link as button -->
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light nav-link" href="{{ url_for('register') }}">Register</a> <!-- Style register link as button -->
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="booking" class="section">
+<div class="section-center">
+<div class="container">
+<div class="row">
+<div class="booking-form">
+<form>
+<div class="form-group">
+<div class="form-checkbox">
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<span class="form-label">From</span>
+<input class="form-control" type="text" id="from" name="from" placeholder="City">
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<span class="form-label">To</span>
+<input class="form-control" type="text" id="to" name="to" placeholder="City">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3">
+<div class="form-group">
+<span class="form-label">Departing</span>
+<input class="form-control" type="date" id="departing" name="departing" required>
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<span class="form-label">Returning</span>
+<input class="form-control" type="date" id="returning" name="returning" required>
+</div>
+</div>
+<div class="col-md-2">
+<div class="form-group">
+<span class="form-label">Adults (18+)</span>
+<select class="form-control" id="adults" name="adults">
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+</select>
+<span class="select-arrow"></span>
+</div>
+</div>
+<div class="col-md-2">
+<div class="form-group">
+<span class="form-label">Children (0-17)</span>
+<select class="form-control" id="children" name="children">
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+</select>
+<span class="select-arrow"></span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3">
+<div class="form-group">
+<span class="form-label">Travel class</span>
+<select class="form-control" id="travel-class" name="travel-class">
+<option>Economy class</option>
+<option>Business class</option>
+<option>First class</option>
+</select>
+<span class="select-arrow"></span>
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-btn">
+<button class="submit-btn">Book</button>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+</body>
+</html>
