@@ -9,8 +9,6 @@
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/countdowntime/countdowntime.css') }}">
-<!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/iconic/css/material-design-iconic-font.min.css') }}">
@@ -42,8 +40,8 @@
                         <img src="{{ url_for('static', filename='icons/bus.png') }}" alt="Bus Icon" width="40">
                     </span>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                        <input class="input100" type="text" name="email">
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                        <input class="input100" type="text" name="email" autocomplete="email">
                         <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
 
@@ -51,7 +49,7 @@
                         <span class="btn-show-pass">
                             <i class="zmdi zmdi-eye"></i>
                         </span>
-                        <input class="input100" type="password" name="pass">
+                        <input class="input100" type="password" name="pass" autocomplete="current-password">
                         <span class="focus-input100" data-placeholder="Password"></span>
                     </div>
 

@@ -3623,6 +3623,7 @@ textarea.form-control-lg {
 
 .nav-link {
   display: block;
+  padding: 5px 10px;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   font-size: var(--bs-nav-link-font-size);
   font-weight: var(--bs-nav-link-font-weight);
@@ -3799,6 +3800,7 @@ textarea.form-control-lg {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  width: auto;
 }
 .navbar-nav .show > .nav-link,
 .navbar-nav .nav-link.active {
@@ -4159,7 +4161,7 @@ textarea.form-control-lg {
 
 #mainNavigation a {
   font-family: 'Cabin', sans-serif;
-  font-size:14px;
+  font-size:12px;
   text-transform:uppercase;
   letter-spacing:2px;
   text-shadow:1px 1px 2px rgba(0,0,0,0.4)
@@ -4180,17 +4182,59 @@ a.dropdown-item:hover {
   color:#fff
 }
 .nav-item{
-  min-width:12vw;
+  min-width:auto;
+  margin-right: 10px;
 }
 #mainNavigation {
+  padding: 10px 15px; /* Adjusted padding */
+  margin-right: 10px;
+  font-size: 0px;
+  text-transform: uppercase;
+  height: 70px;
   position: fixed;
   top: 0; /* Adjusted to 0 */
   width: 100%;
+  overflow: visible;
   background-color: rgba(51, 51, 51, 0.8); /* Adjusted for transparency */
   color: white;
   transition: top 0.3s;
   z-index: 1000;
 }
+
+#mainNavigation a.nav-link {
+  font-size: 12px; /* Adjusted font size */
+  padding: 8px 16px; /* Adjusted padding */
+  margin-left: 10px; /* Adjusted margin */
+}
+
+#mainNavigation .nav-link:hover {
+  color: #fff; /* Hover color */
+}
+
+#mainNavigation .nav-link.active {
+  color: #fff; /* Active color */
+}
+
+/* Align login and register links to the right */
+.navbar-nav.right-links {
+  margin-left: auto;
+}
+
+/* Style login and register links as buttons */
+.navbar-nav.right-links .nav-link {
+  border-radius: 20px; /* Adjust border-radius as needed */
+  background-color: transparent;
+  border: 1px solid #ffffff; /* Use your desired border color */
+  color: #ffffff; /* Text color */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.navbar-nav.right-links .nav-link:hover {
+  background-color: #ffffff; /* Hover background color */
+  color: #03727d; /* Hover text color */
+  border-color: #ffffff; /* Hover border color */
+}
+
 
 .card {
   --bs-card-spacer-y: 1rem;

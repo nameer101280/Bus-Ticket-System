@@ -15,60 +15,101 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
     <!-- Navbar scroll functionality -->
-    <style>
-        /* Add your navbar styling here */
-        #navbar {
-            position: fixed;
-            top: 0;
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+    <style>    
+        #mainNavigation {
+            padding: 0px 0px; /* Adjusted padding */
+            margin-right: 10px;
+            font-size: 0px;
+            text-transform: uppercase;
+            height: 58px;
+            top: 0; /* Adjusted to 0 */
             width: 100%;
-            background-color: #333;
+            overflow: ;
+            background-color: rgba(51, 51, 51, 0.0); /* Adjusted for transparency */
             color: white;
             transition: top 0.3s;
+            z-index: 1000;
+          }
+        
+          #mainNavigation a.nav-link {
+            font-size: 10px; /* Adjusted font size */
+          }
+          
+          #mainNavigation .nav-link:hover {
+            color: #fff; /* Hover color */
+          }
+          
+          #mainNavigation .nav-link.active {
+            color: #fff; /* Active color */
+          }
+          
+          /* Align login and register links to the right */
+        .navbar-nav.right-links {
+            margin-left: auto;
         }
+        
+        /* Style login and register links as buttons */
+        .navbar-nav.right-links .nav-link {
+            padding: 8px 16px;
+            border-radius: 20px; /* Adjust border-radius as needed */
+            background-color: transparent;
+            border: 1px solid #ffffff; /* Use your desired border color */
+            color: #ffffff; /* Text color */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        
+        .navbar-nav.right-links .nav-link:hover {
+            background-color: black; /* Hover background color */
+            color: #03727d; /* Hover text color */
+            border-color: #ffffff; /* Hover border color */
+        }
+        
+           
     </style>
 </head>
 <body>
-    <!-- Navigation-->
-    <div id="mainNavigation">
-        <nav role="navigation">
-          <div class="py-3 text-center border-bottom">
+<!-- Navigation-->
+<div id="mainNavigation" style="padding: 10px 15px 0;"> <!-- Adjusted padding -->
+    <nav role="navigation">
+        <div class="py-3 text-center">
             <img src="/static_files/images/logos/logo_3_white_2.png" alt="" class="invert">
-          </div>
-        </nav>
-        <div class="navbar-expand-md">
-          <div class="navbar-dark text-center my-2">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
-            </button>
-          </div>
-          <div class="text-center mt-3 collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('book_tickets') }}">Book Tickets</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a> <!-- Updated nav link -->
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="" data-bs-toggle="" aria-expanded="false">
-                </a>
-              </li>
-            </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="btn btn-outline-light nav-link" href="{{ url_for('login') }}">Login</a> <!-- Style login link as button -->
-              </li>
-              <li class="nav-item">
-                <a class="btn btn-outline-light nav-link" href="{{ url_for('register') }}">Register</a> <!-- Style register link as button -->
-              </li>
-            </ul>
-          </div>
         </div>
-      </div>
-  
+    </nav>
+    <div class="navbar-expand-md">
+        <div class="navbar-dark text-center my-2">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+            </button>
+        </div>
+        <div class="text-center mt-3 collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}" style="font-size: 14px;">Home</a> <!-- Adjusted font size -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('book_tickets') }}" style="font-size: 14px;">Book Tickets</a> <!-- Adjusted font size -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="templates/about.html" style="font-size: 14px;">About Us</a> <!-- Updated nav link and adjusted font size -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="" data-bs-toggle="" aria-expanded="false" style="font-size: 14px;">
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 navbar-nav right-links"> <!-- Added 'navbar-nav right-links' class -->
+                <li class="nav-item">
+                    <a class="btn btn-outline-light nav-link" href="{{ url_for('login') }}" style="font-size: 14px;">Login</a> <!-- Style login link as button and adjusted font size -->
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light nav-link" href="{{ url_for('register') }}" style="font-size: 14px;">Register</a> <!-- Style register link as button and adjusted font size -->
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
     <!-- Masthead-->
     <header class="masthead">
         <div class="container position-relative">
@@ -249,7 +290,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="{{ url_for('static', filename='/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
      <!-- Navbar scroll functionality -->
      <script>
         let prevScrollPos = window.pageYOffset;
